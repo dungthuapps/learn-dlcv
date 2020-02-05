@@ -8,11 +8,11 @@
 ## Sequence Models
 
 - one-to-one
-  - 1 `tensor` -> 1 tensor
-  - classification
-    - 1 input image -> class
-  - regression
-    - next value of sales
+  - 1 `tensor` --f--> 1 tensor
+    - classification:
+      - 1 input image -> class
+    - regression
+      - next value of sales
 - one-to-many (or _sequence_)
 - many-to-one
   - unknown length of input -> 1 output
