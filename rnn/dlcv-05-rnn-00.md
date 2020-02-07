@@ -1,10 +1,7 @@
 ---
-header-includes: 
-    - \usepackage[pdf]{graphviz}
-output: 
-    pdf_document:
-        pdf_engine: pdflatex
-        # pdf_engine_opt: "-shell-escape"
+output:
+  pdf_document:
+    path: outputs/overview.pdf
 ---
 
 # Overview RNN
@@ -25,17 +22,32 @@ digraph G {
     seq -> "n-1"
     seq -> hidden_rnn_layer
 
-
-    hidden_rnn_layer [texlbl="$h_t = f_w(h_{t-1}, x_t)$" label="$h_11$"]
+    hidden_rnn_layer [label="$h_t = f_w(h_{t-1}, x_t)$"]
 }
 
 ```
 
-$$
-    \digraph[scale=0.5]{abc}{
-        b [ shape=none label=abc ];
+```latex {cmd}
+\documentclass{standalone}
+\usepackage[pdf]{graphviz}
 
-        a -> b -> c;
+\begin{document}
+\digraph[scale=0.5]{abc}{
+    seq [label = "Sequence Models"]
+    str [label = "RNN Structure"]
 
-    }
-$$
+    rnn -> seq
+    rnn -> str
+
+    seq -> "one-to-one" -> classification [label=ex]
+    classification -> "1 tensor image - 1 class"
+    seq -> "1-n"
+    seq -> "n-n"
+    seq -> "n-1"
+    seq -> hidden_rnn_layer
+
+    hidden_rnn_layer [label="h_t = f_w(h_{t-1}, x_t)"]
+
+}
+\end{document}
+```

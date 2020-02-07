@@ -13,7 +13,7 @@ Taking notes and review using vscode
 
 ### Configuration
 
-1. `sudo apt install graphviz latexmk pandoc`
+1. `sudo apt install graphviz latexmk pandoc pdf2svg texlive-latex-extra`
 1. install package graphviz for latex
 
    1. Downloading [graphviz-latex]
@@ -30,16 +30,22 @@ Taking notes and review using vscode
 
 1. Configure pdflatex or latex by adding `-shell-escape` for pdflatex
 
-   - For Texstudio, Configurations -> Commands -> add `-shell-escape` flag
-   - For vscode, settings.json
+   1. For Texstudio
+      Configurations -> Commands -> add `-shell-escape` flag
 
-     - [latex-workshop]:
-       `latex-workshop.latex.tools` -> add `"-shell-escape"` under pdflatex
-     - [Markdown Preview Enhanced][mpe]:
-       `"markdown-preview-enhanced.latexEngine": "pdflatex -shell-escape"`
-       you also may to enable [latex-workshop-code-chunk] to render it. To test the function works under markdown-preview-enhanced add the block code ` ```latex {cmd=true} ``` `:
+   1. For vscode and [latex-workshop]
 
-       ```latex
+      - `latex-workshop.latex.tools` -> add `"-shell-escape"` under pdflatex or latexmk
+
+      - **Notice**: sometime the name of graph should not be same with tex file.
+
+   1. vscode + [Markdown Preview Enhanced][mpe] + pandoc:
+      a. [latex-workshop-code-chunk]
+
+      - `markdown-preview-enhanced.enableScriptExecution`: true
+      - ` ```latex {cmd=true} ``` `
+
+        ```latex
         \documentclass{standalone}
         \usepackage[pdf]{graphviz}
 
@@ -51,7 +57,12 @@ Taking notes and review using vscode
 
         }
         \end{document}
-       ```
+        ```
+
+1. How to Graphviz with latex-label in node
+
+   1. dot2tex
+   1. dot2texi
 
 [mpe]: https://github.com/shd101wyy/vscode-markdown-preview-enhanced
 [graphviz-latex]: https://ctan.org/pkg/graphviz?lang=en
