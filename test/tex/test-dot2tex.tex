@@ -1,0 +1,29 @@
+\documentclass{article}
+
+\usepackage{dot2texi}
+\usepackage{tikz}
+
+\usetikzlibrary{shapes,arrows}
+
+\begin{document}
+\begin{dot2tex}[dot, outputdir=build/]
+    digraph G {
+    hidden_rnn_layer [texlbl="$h_t = f_w(h_{t-1}, x_t)$"]
+
+    seq [label = "Sequence Models"]
+    str [label = "RNN Structure"]
+
+    rnn -> seq
+    rnn -> str
+    str -> hidden_rnn_layer
+
+    seq -> "one-to-one" -> classification [label=ex]
+    classification -> "1 tensor image - 1 class"
+    seq -> "1-n"
+    seq -> "n-n"
+    seq -> "n-1"
+
+    }
+\end{dot2tex}
+
+\end{document}

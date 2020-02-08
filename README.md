@@ -61,8 +61,35 @@ Taking notes and review using vscode
 
 1. How to Graphviz with latex-label in node
 
-   1. dot2tex
+   1. latex + graphviz -> dot -> dot2tex -> tex -> tex
+   1. latex + graphviz -> dot -> pdf -> tex
    1. dot2texi
+
+      - To make all build in another folder:
+
+      ```json
+      "latex-workshop.latex.outDir": "%DIR%/build"
+      ```
+
+      ```bash
+      # then we need modify dot2texi.sty, first locate it
+      locate dot2texi.sty
+      ```
+
+      ```latex
+      % in file dot2texi.sty, modify it
+      % at line 156- comment out and replace as follow
+
+      % \def\dtt@figname{\dtt@outputdir\jobname-dot2tex-fig\thedtt@fignum}
+      \def\dtt@figname{\jobname-dot2tex-fig\thedtt@fignum}
+
+      % at line 275, change -o as follow
+      -o    \dtt@outputdir\dtt@figname.tex \dtt@options\space
+            \dtt@outputdir\dtt@figname.dot
+
+      ```
+
+1)  markdown + graphviz -> pandoc -> pdf (but not math in note-label)
 
 [mpe]: https://github.com/shd101wyy/vscode-markdown-preview-enhanced
 [graphviz-latex]: https://ctan.org/pkg/graphviz?lang=en

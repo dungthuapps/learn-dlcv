@@ -3,20 +3,28 @@
 
 \begin{document}
 \digraph {ttt}{
+    hidden_rnn_layer [texlbl="$h_t = f_w(h_{t-1}, x_t)$"]
+
     seq [label = "Sequence Models"]
     str [label = "RNN Structure"]
 
     rnn -> seq
     rnn -> str
+    str -> hidden_rnn_layer
 
     seq -> "one-to-one" -> classification [label=ex]
     classification -> "1 tensor image - 1 class"
     seq -> "1-n"
     seq -> "n-n"
     seq -> "n-1"
-    seq -> hidden_rnn_layer
-
-    hidden_rnn_layer [label="h_t = f_w(h_{t-1}, x_t)"]
 
 }
+
+
 \end{document}
+
+% build tex --> ttt.dot 
+%   --> dot2tex ttt.dot > ttt.tex
+%   --> open/include ttt.tex
+% (little unconvenient)
+% another solution is to use dot2texi -> see test-dot2texi.tex
