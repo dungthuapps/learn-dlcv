@@ -39,7 +39,7 @@ Taking notes and review using vscode
 
       - **Notice**: sometime the name of graph should not be same with tex file.
 
-   1. vscode + [Markdown Preview Enhanced][mpe] + pandoc:
+   1. vscode + [Markdown Preview Enhanced][vscode-mpe] + pandoc:
       a. [latex-workshop-code-chunk]
 
       - `markdown-preview-enhanced.enableScriptExecution`: true
@@ -65,33 +65,39 @@ Taking notes and review using vscode
    1. latex + graphviz -> dot -> pdf -> tex
    1. dot2texi
 
-      - To make all build in another folder:
+      1. To make all build in another folder:
 
-      ```json
-      "latex-workshop.latex.outDir": "%DIR%/build"
-      ```
+         ```json
+         "latex-workshop.latex.outDir": "%DIR%/build"
+         ```
 
-      ```bash
-      # then we need modify dot2texi.sty, first locate it
-      locate dot2texi.sty
-      ```
+         ```bash
+         # then we need modify dot2texi.sty, first locate it
+         locate dot2texi.sty
+         ```
 
-      ```latex
-      % in file dot2texi.sty, modify it
-      % at line 156- comment out and replace as follow
+         ```latex
+         % in file dot2texi.sty, modify it
+         % at line 156- comment out and replace as follow
 
-      % \def\dtt@figname{\dtt@outputdir\jobname-dot2tex-fig\thedtt@fignum}
-      \def\dtt@figname{\jobname-dot2tex-fig\thedtt@fignum}
+         % \def\dtt@figname{\dtt@outputdir\jobname-dot2tex-fig\thedtt@fignum}
+         \def\dtt@figname{\jobname-dot2tex-fig\thedtt@fignum}
 
-      % at line 275, change -o as follow
-      -o    \dtt@outputdir\dtt@figname.tex \dtt@options\space
-            \dtt@outputdir\dtt@figname.dot
+         % at line 275, change -o as follow
+         -o    \dtt@outputdir\dtt@figname.tex \dtt@options\space
+               \dtt@outputdir\dtt@figname.dot
 
-      ```
+         ```
 
-1)  markdown + graphviz -> pandoc -> pdf (but not math in note-label)
+      1. then try again with
 
-[mpe]: https://github.com/shd101wyy/vscode-markdown-preview-enhanced
+         ```latex
+         \begin{dot2tex}[dot, outputdir=build/]
+         ```
+
+1. markdown + graphviz -> pandoc -> pdf (but not math in note-label)
+
+[vscode-mpe]: https://github.com/shd101wyy/vscode-markdown-preview-enhanced
 [graphviz-latex]: https://ctan.org/pkg/graphviz?lang=en
 [latex-workshop]: https://github.com/James-Yu/LaTeX-Workshop
 [latex-workshop-code-chunk]: https://github.com/shd101wyy/markdown-preview-enhanced/blob/master/docs/code-chunk.md

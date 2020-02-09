@@ -416,6 +416,6 @@ TSWLatexianTemp*
 
 *.dot
 .idea/
-.prettierrc.json
+.prettierrc
 assets/
 *outputs/
