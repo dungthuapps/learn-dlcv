@@ -1,0 +1,117 @@
+\documentclass{article}
+\usepackage[x11names, rgb]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{snakes,arrows,shapes}
+\usepackage{amsmath}
+%
+%
+
+%
+
+%
+
+\begin{document}
+\pagestyle{empty}
+%
+%
+%
+
+\enlargethispage{100cm}
+% Start of code
+% \begin{tikzpicture}[anchor=mid,>=latex',line join=bevel,]
+\begin{tikzpicture}[>=latex',line join=bevel,]
+  \pgfsetlinewidth{1bp}
+%%
+\pgfsetcolor{black}
+  % Edge: seq -> n-1
+  \draw [->] (275.81bp,246.97bp) .. controls (286.62bp,233.91bp) and (301.35bp,216.11bp)  .. (319.69bp,193.96bp);
+  % Edge: seq -> hidden_rnn_layer
+  \draw [->] (295.74bp,249.04bp) .. controls (327.08bp,234.69bp) and (373.25bp,213.55bp)  .. (416.26bp,193.86bp);
+  % Edge: rnn -> seq
+  \draw [->] (322.31bp,323.23bp) .. controls (312.14bp,313.59bp) and (298.63bp,300.77bp)  .. (279.44bp,282.58bp);
+  % Edge: seq -> one-to-one
+  \draw [->] (229.67bp,248.64bp) .. controls (202.04bp,234.16bp) and (161.67bp,213.0bp)  .. (123.21bp,192.84bp);
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (194.39bp,221.5bp) node {ex};
+  % Edge: seq -> 1-n
+  \draw [->] (245.97bp,246.97bp) .. controls (235.16bp,233.91bp) and (220.43bp,216.11bp)  .. (202.1bp,193.96bp);
+  % Edge: seq -> n-n
+  \draw [->] (260.89bp,246.97bp) .. controls (260.89bp,235.19bp) and (260.89bp,219.56bp)  .. (260.89bp,196.0bp);
+  % Edge: one-to-one -> classification
+  \draw [->] (94.892bp,159.97bp) .. controls (94.892bp,148.19bp) and (94.892bp,132.56bp)  .. (94.892bp,109.0bp);
+  \draw (101.39bp,134.5bp) node {ex};
+  % Edge: rnn -> str
+  \draw [->] (353.68bp,323.23bp) .. controls (364.05bp,313.52bp) and (377.86bp,300.59bp)  .. (397.39bp,282.32bp);
+  % Edge: classification -> 1 tensor image - 1 class
+  \draw [->] (94.892bp,72.955bp) .. controls (94.892bp,64.883bp) and (94.892bp,55.176bp)  .. (94.892bp,36.09bp);
+  % Node: classification
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (94.892bp,91.0bp) node {classification};
+\end{scope}
+  % Node: one-to-one
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (94.892bp,178.0bp) node {one-to-one};
+\end{scope}
+  % Node: rnn
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (337.89bp,338.0bp) node {rnn};
+\end{scope}
+  % Node: seq
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (260.89bp,265.0bp) node {Sequence Models};
+\end{scope}
+  % Node: n-1
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (332.89bp,178.0bp) node {n-1};
+\end{scope}
+  % Node: 1 tensor image - 1 class
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (94.892bp,18.0bp) node {1 tensor image - 1 class};
+\end{scope}
+  % Node: str
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (415.89bp,265.0bp) node {RNN Structure};
+\end{scope}
+  % Node: 1-n
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (188.89bp,178.0bp) node {1-n};
+\end{scope}
+  % Node: n-n
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (260.89bp,178.0bp) node {n-n};
+\end{scope}
+  % Node: hidden_rnn_layer
+\begin{scope}
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (450.89bp,178.0bp) node {$h_t = f_w(h_{t-1}, x_t)$};
+\end{scope}
+%
+\end{tikzpicture}
+% End of code
+
+%
+\end{document}
+%
+
+
