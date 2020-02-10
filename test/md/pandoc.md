@@ -3,15 +3,13 @@ title: How to learn pandoc and markdown
 output:
   pdf_document:
     path: build/build.pdf
-    includes:
+    include:
       in_header: ./tikz-preamble.tex
-    filter: ./dot2tex-filter.py
 pandoc_args:
   - "--toc"
-  #   - "--standalone"
-  #   - "--include-in-header=./tikz-preamble.tex"
-  - "--include-in-header=./tikz-preamble.tex"
-  - "--filter=./dot2tex-filter.py"
+  - "--standalone"
+  # - "--include-in-header=./tikz-preamble.tex"
+  # - "--filter=./dot2tex-filter.py"
 ---
 
 ## Pandoc + Markdown + Latex + Graphviz
@@ -28,7 +26,7 @@ pandoc_args:
 
 ```dot
 digraph {
-  label="X_5"
+  label="my graph here"
   caption="My graph"
 
   C [texlbl="$C_x$"]
@@ -39,11 +37,6 @@ digraph {
 
 Notice:
 
-- currently filter failed
+- currently doc2tex filter failed with pandoc -> need to rewrite
 - find the way to render (1) katex -> (2) dot (viz.js)
-
-## Alternative with dot2tex (ugly)
-
-1. use dot2tex -> convert to tex
-1. copy from \begin{tickzpicture} ... \end{tickzpicture} to $$...$$
-1. use pandoc to generate pdf/rendering
+- not good solution for markdown + katex-graph
