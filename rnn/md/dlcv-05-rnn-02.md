@@ -20,11 +20,11 @@ $$
 
 Single-step
 
-![vanilla-structure-1](images/rnn-vanilla-structure-1.png)
+![vanilla-structure-1](img/rnn-vanilla-structure-1.png)
 
 3-steps
 
-![vanilla-structure-2](images/rnn-vanilla-structure-2.png)
+![vanilla-structure-2](img/rnn-vanilla-structure-2.png)
 
 ### Problem of Vanilla and long-steps
 

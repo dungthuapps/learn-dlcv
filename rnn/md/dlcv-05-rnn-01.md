@@ -24,7 +24,7 @@
 
 ## Mathematical
 
-![rnn-structure-1](images/rnn-structure-1.png)
+@import "img/rnn-structure-1.png" {width=20%}
 
 > $h_t = f_w(h_{t-1}, x_t)$
 
@@ -39,18 +39,20 @@
 
 Example:
 
-> $h_t = \tanh(W_{hh} h_{t-1} + W_{xh} * X)$ > $y_t = W_{hy} * h_t$
+> $h_t = \tanh(W_{hh} h_{t-1} + W_{xh} * X)$
+
+> $y_t = W_{hy} * h_t$
 
 ## Computational graph
 
-An RNN is `unfolded` in time
+An RNN is `unfolded` in run time
 
 - to generate a `standard feed-forward computational graph`
   - also to support back propagation
 
-![rnn-many-to-many-unfolded](images/rnn-structure-2-unfolded.png)
-
 ### Case 1: many-to-many
+
+@import "img/rnn-structure-2-unfolded.png" {width=50%}
 
 - Weights
   - W same for X -> $f_W$
@@ -64,17 +66,17 @@ An RNN is `unfolded` in time
 
 ### Case 2: many-to-one
 
-![rnn-many-to-one-unfolded](images/rnn-structure-3-many-to-one-unfolded.png)
+@import "img/rnn-structure-3-many-to-one-unfolded.png") {width=50%}
 
 ### Case 3: one-to-many
 
-![rnn-one-to-many-unfolded](images/rnn-structure-4-one-to-many-unfolded.png)
+@import "img/rnn-structure-4-one-to-many-unfolded.png") {width=50%}
 
 ### Case 4: encoder-decoder view
 
 Popular in translation
 
-![rnn-encoder-decoder](images/rnn-structure-5-encoder-decoder.png)
+@import "img/rnn-structure-5-encoder-decoder.png" {width=50%}
 
 - Encoder: many-to-one
   - encode input sequence to terminal state $h_t$
@@ -95,7 +97,7 @@ Assume we have fixed domain A = {h, e, l, o}
 
 > $h_t = tanh(W_{hh}h_{t-1} + W_{xh}x_t)$
 
-![rnn-one-hot-encoding](images/rnn-train-0-ohe.png)
+@import "img/rnn-train-0-ohe.png" {width=50%}
 
 #### Loss Function
 
@@ -105,7 +107,7 @@ Assume we have fixed domain A = {h, e, l, o}
 
 If over all training set it will look like:
 
-![rnn-train-1](images/rnn-train-1.png)
+@import "img/rnn-train-1.png" {width=50%}
 
 - Problems: whole data set
   - forward through entire sequence to compute loss
@@ -113,7 +115,7 @@ If over all training set it will look like:
 
 Solved by **truncated backprop**
 
-![rnn-train-2](images/rnn-train-2.png)
+@import "img/rnn-train-2.png" {width=50%}
 
 - Each chunk as a window = chunk of sequence
 - Forward
@@ -123,7 +125,7 @@ Solved by **truncated backprop**
 
 #### Prediction and Generation of a sequence
 
-![rnn-generate-sequence](images/rnn-prediction-1.png)
+![rnn-generate-sequence](img/rnn-prediction-1.png)
 
 - input could stop here at 4, but it could auto generate next other outputs
   - reused to generate next outputs
@@ -140,7 +142,7 @@ Solved by **truncated backprop**
 - More complex multilayer RNN
   - more complex in non-linear dependencies of output on input
 
-![rnn-multilayer-1](images/rnn-multilayer-1.png)
+@import "img/rnn-multilayer-1.png" {width=30%}
 
 $$
   h_t^l = tanh(W_l\begin{bmatrix}h_t^{l-1} \\ h_t^{l}\end{bmatrix})
@@ -173,17 +175,17 @@ where
 
 (low-interpretable level)
 
-![rnn-explain-cell-with-low-explainable](images/rnn-explain-1-cell-low-interpretable.png)
+@import "img/rnn-explain-1-cell-low-interpretable.png" {width=50%}
 
 #### the cell extract quoting
 
-![rnn-explain-cell-with-explaining-quotes](images/rnn-explain-2-cell-explain-quotes.png)
+@import "img/rnn-explain-2-cell-explain-quotes.png" {width=50%}
 
 - if quoting then negative (blue)
 - if non-quoting then positive (red)
 
 #### the cell explain length of lines
 
-![rnn-explain-cell-with-explaining-length](images/rnn-explain-2-cell-explain-length.png)
+@import "img/rnn-explain-3-cell-explain-length.png" {width=50%}
 
 ! More examples in feature extractions for coding like (commenting, if-else statement, nesting length )

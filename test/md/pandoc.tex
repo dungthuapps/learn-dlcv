@@ -1,0 +1,45 @@
+\hypertarget{pandoc-markdown-latex-graphviz}{%
+\subsection{Pandoc + Markdown + Latex +
+Graphviz}\label{pandoc-markdown-latex-graphviz}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  set in settings.json
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ErrorTok{"markdown-preview-enhanced.usePandocParser":} \ErrorTok{true,}
+\end{Highlighting}
+\end{Shaded}
+
+  \textbf{Notice}: it will replace default markdown-it parser
+\item
+  Example
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{digraph} \OtherTok{\{}
+\CommentTok{  }\AttributeTok{label}\OtherTok{=}\StringTok{"my graph here"}
+\CommentTok{  }\VariableTok{caption}\OtherTok{=}\StringTok{"My graph"}
+
+\CommentTok{  }\VariableTok{C}\CommentTok{ }\OtherTok{[}\VariableTok{texlbl}\OtherTok{=}\StringTok{"$C_x$"}\OtherTok{]}
+\CommentTok{  }\VariableTok{A}\CommentTok{ }\OtherTok{->}\CommentTok{ }\VariableTok{B}\CommentTok{ }\OtherTok{->}\CommentTok{ }\VariableTok{C}\OtherTok{;}
+\CommentTok{  }\VariableTok{A}\CommentTok{ }\OtherTok{->}\CommentTok{ }\VariableTok{C}\OtherTok{;}
+\OtherTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Notice:
+
+\begin{itemize}
+\tightlist
+\item
+  currently doc2tex filter failed with pandoc -\textgreater{} need to
+  rewrite
+\item
+  find the way to render (1) katex -\textgreater{} (2) dot (viz.js)
+\item
+  not good solution for markdown + katex-graph
+\end{itemize}
